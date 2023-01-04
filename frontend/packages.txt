@@ -1,0 +1,5 @@
+@tailwindcss/typography
+react-modal
+nookies
+@apollo/client
+graphql
