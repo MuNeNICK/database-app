@@ -3,3 +3,4 @@ react-modal
 nookies
 @apollo/client
 graphql
+socket.io-client
