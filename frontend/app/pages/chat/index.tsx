@@ -26,6 +26,7 @@ export default function MyComponent() {
   const handleSubmit = (event) => {
     event.preventDefault();
     socket.emit('message', message);
+    setMessage('');
   }
 
   return (
