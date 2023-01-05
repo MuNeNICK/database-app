@@ -8,8 +8,6 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { join } from 'path';
 import { NotesModule } from './notes/notes.module';
-import { EventsController } from './events/events.controller';
-import { EventsService } from './events/events.service';
 import { EventsModule } from './events/events.module';
 
 
@@ -26,7 +24,7 @@ import { EventsModule } from './events/events.module';
     NotesModule,
     EventsModule,
   ],
-  controllers: [AppController, EventsController],
-  providers: [AppService, PrismaService, EventsService],
+  controllers: [AppController],
+  providers: [AppService, PrismaService],
 })
 export class AppModule {}

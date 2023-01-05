@@ -16,3 +16,4 @@ prisma-nestjs-graphql
 class-validator
 class-transformer
 @nestjs/websockets
+socket.io
