@@ -26,6 +26,7 @@
     "@nestjs/jwt": "^9.0.0",
     "@nestjs/passport": "^9.0.0",
     "@nestjs/platform-express": "^9.0.0",
+    "@nestjs/websockets": "^9.2.1",
     "@prisma/client": "^4.7.1",
     "@types/passport-jwt": "^3.0.8",
     "@types/passport-local": "^1.0.34",

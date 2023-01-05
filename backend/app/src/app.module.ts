@@ -8,6 +8,9 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { join } from 'path';
 import { NotesModule } from './notes/notes.module';
+import { EventsController } from './events/events.controller';
+import { EventsService } from './events/events.service';
+import { EventsModule } from './events/events.module';
 
 
 @Module({
@@ -21,8 +24,9 @@ import { NotesModule } from './notes/notes.module';
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
     }),
     NotesModule,
+    EventsModule,
   ],
-  controllers: [AppController],
-  providers: [AppService, PrismaService],
+  controllers: [AppController, EventsController],
+  providers: [AppService, PrismaService, EventsService],
 })
 export class AppModule {}
