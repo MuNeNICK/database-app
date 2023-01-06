@@ -46,7 +46,7 @@ export default function MyComponent() {
   return (
     <Layout>
       <Container>
-        <div className="container mx-auto p-4 bg-white rounded-lg shadow-lg overflow-hidden absolute bottom-10">
+        <div className="container mx-auto p-4 bg-white rounded-lg overflow-hidden absolute bottom-10">
           <div className="messages h-80 overflow-y-scroll">
             {receivedMessages.map(({ sender, message, date }, index) => (
               <div key={index} className="p-4 border-b">
