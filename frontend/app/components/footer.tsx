@@ -115,7 +115,7 @@ const Footer = () => {
 -11 0 -20 5 -20 10 0 6 -18 10 -40 10 -22 0 -40 -4 -40 -10z"/>
                                 </g>
                             </svg>
-                            <span className="self-center text-2xl font-semibold whitespace-nowrap">MuNeNiCK.me</span>
+                            <span className="self-center text-2xl font-semibold whitespace-nowrap">threaDBlog</span>
                         </Link>
                     </div>
                     <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">

@@ -117,7 +117,7 @@ const Header = () => {
                 </g>
               </svg>
               <Link href="/">
-                <h2 className="text-2xl  font-bold">MuNeNiCK.me</h2>
+                <h2 className="text-2xl  font-bold">threaDBlog</h2>
               </Link>
             </div>
             <div className="md:hidden">
@@ -167,22 +167,22 @@ const Header = () => {
             <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
               <li>
                 <Link href="/">
-                  Home
+                  ホーム
                 </Link>
               </li>
               <li>
-                <Link href="/blog">
-                  Blog
+                <Link href="/new">
+                  新規投稿
                 </Link>
               </li>
               <li>
                 <Link href="/about">
-                  About Me
+                  新規スレッド
                 </Link>
               </li>
               <li>
-                <Link href="/contact">
-                  Contact Me
+                <Link href="/login">
+                  ログイン
                 </Link>
               </li>
             </ul>

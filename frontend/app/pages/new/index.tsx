@@ -2,13 +2,11 @@ import dynamic from 'next/dynamic'
 import ErrorPage from 'next/error'
 import { parseCookies } from 'nookies'
 import { useEffect, useState } from "react"
-import { useRouter } from 'next/router'
 
 const Layout = dynamic(() => import("../../components/layout"))
 const New = dynamic(() => import("../../components/post-new"))
 
 export default function NewMD() {
-  const router = useRouter()
   const accessToken = parseCookies().accessToken;
   const [isClient, setIsClient] = useState(false);
   const new_page = () => {
@@ -26,9 +24,7 @@ export default function NewMD() {
       )
     }
     else {
-      useEffect(() => {
-        router.replace("/login")
-      })
+      return <ErrorPage statusCode={401} />
     }
   }
 
