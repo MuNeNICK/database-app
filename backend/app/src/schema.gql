@@ -53,11 +53,20 @@ enum enum_Notes_permission {
   private
 }
 
+type Threads {
+  id: ID!
+  sender: String
+  message: String
+  date: String
+  roomname: String
+}
+
 type Query {
   user(where: UsersWhereInput, orderBy: [UsersOrderByWithRelationInput!], cursor: UsersWhereUniqueInput, take: Int, skip: Int, distinct: [UsersScalarFieldEnum!]): Users!
   users(where: UsersWhereInput, orderBy: [UsersOrderByWithRelationInput!], cursor: UsersWhereUniqueInput, take: Int, skip: Int, distinct: [UsersScalarFieldEnum!]): [Users!]!
-  note(where: NotesWhereInput, orderBy: [NotesOrderByWithRelationInput!], cursor: NotesWhereUniqueInput, take: Int, skip: Int, distinct: [NotesScalarFieldEnum!]): Notes!
+  note(where: ThreadsWhereInput, orderBy: [ThreadsOrderByWithRelationInput!], cursor: ThreadsWhereUniqueInput, take: Int, skip: Int, distinct: [ThreadsScalarFieldEnum!]): Threads!
   notes(where: NotesWhereInput, orderBy: [NotesOrderByWithRelationInput!], cursor: NotesWhereUniqueInput, take: Int, skip: Int, distinct: [NotesScalarFieldEnum!]): [Notes!]!
+  threads(where: ThreadsWhereInput, orderBy: [ThreadsOrderByWithRelationInput!], cursor: ThreadsWhereUniqueInput, take: Int, skip: Int, distinct: [ThreadsScalarFieldEnum!]): [Threads!]!
 }
 
 input UsersWhereInput {
@@ -216,6 +225,59 @@ enum UsersScalarFieldEnum {
   email
   password
   deleteToken
+}
+
+input ThreadsWhereInput {
+  AND: [ThreadsWhereInput!]
+  OR: [ThreadsWhereInput!]
+  NOT: [ThreadsWhereInput!]
+  id: IntFilter
+  sender: StringNullableFilter
+  message: StringNullableFilter
+  date: StringNullableFilter
+  roomname: StringNullableFilter
+}
+
+input IntFilter {
+  equals: Int
+  in: [Int!]
+  notIn: [Int!]
+  lt: Int
+  lte: Int
+  gt: Int
+  gte: Int
+  not: NestedIntFilter
+}
+
+input NestedIntFilter {
+  equals: Int
+  in: [Int!]
+  notIn: [Int!]
+  lt: Int
+  lte: Int
+  gt: Int
+  gte: Int
+  not: NestedIntFilter
+}
+
+input ThreadsOrderByWithRelationInput {
+  id: SortOrder
+  sender: SortOrder
+  message: SortOrder
+  date: SortOrder
+  roomname: SortOrder
+}
+
+input ThreadsWhereUniqueInput {
+  id: Int
+}
+
+enum ThreadsScalarFieldEnum {
+  id
+  sender
+  message
+  date
+  roomname
 }
 
 input NotesWhereInput {
