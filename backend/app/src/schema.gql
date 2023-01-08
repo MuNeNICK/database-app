@@ -324,7 +324,6 @@ input NotesOrderByWithRelationInput {
 
 input NotesWhereUniqueInput {
   id: String
-  title: String
 }
 
 enum NotesScalarFieldEnum {

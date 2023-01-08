@@ -6,6 +6,8 @@ import { ThreadsOrderByWithRelationInput } from './threads-order-by-with-relatio
 import { ThreadsWhereUniqueInput } from './threads-where-unique.input';
 import { Int } from '@nestjs/graphql';
 import { ThreadsCountAggregateInput } from './threads-count-aggregate.input';
+import { ThreadsAvgAggregateInput } from './threads-avg-aggregate.input';
+import { ThreadsSumAggregateInput } from './threads-sum-aggregate.input';
 import { ThreadsMinAggregateInput } from './threads-min-aggregate.input';
 import { ThreadsMaxAggregateInput } from './threads-max-aggregate.input';
 
@@ -30,6 +32,12 @@ export class ThreadsAggregateArgs {
 
     @Field(() => ThreadsCountAggregateInput, {nullable:true})
     _count?: ThreadsCountAggregateInput;
+
+    @Field(() => ThreadsAvgAggregateInput, {nullable:true})
+    _avg?: ThreadsAvgAggregateInput;
+
+    @Field(() => ThreadsSumAggregateInput, {nullable:true})
+    _sum?: ThreadsSumAggregateInput;
 
     @Field(() => ThreadsMinAggregateInput, {nullable:true})
     _min?: ThreadsMinAggregateInput;

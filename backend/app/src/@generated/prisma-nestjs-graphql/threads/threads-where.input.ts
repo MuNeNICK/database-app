@@ -1,6 +1,6 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
-import { UuidFilter } from '../prisma/uuid-filter.input';
+import { IntFilter } from '../prisma/int-filter.input';
 import { StringNullableFilter } from '../prisma/string-nullable-filter.input';
 
 @InputType()
@@ -15,8 +15,8 @@ export class ThreadsWhereInput {
     @Field(() => [ThreadsWhereInput], {nullable:true})
     NOT?: Array<ThreadsWhereInput>;
 
-    @Field(() => UuidFilter, {nullable:true})
-    id?: UuidFilter;
+    @Field(() => IntFilter, {nullable:true})
+    id?: IntFilter;
 
     @Field(() => StringNullableFilter, {nullable:true})
     sender?: StringNullableFilter;

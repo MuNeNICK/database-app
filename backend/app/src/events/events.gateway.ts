@@ -5,6 +5,9 @@ import {
   WebSocketServer
 } from '@nestjs/websockets';
 import { Server } from 'socket.io';
+import { PrismaService } from 'src/prisma.service';
+import { Threads } from 'src/@generated/prisma-nestjs-graphql/threads/threads.model';
+import { CreateOneThreadsArgs } from 'src/@generated/prisma-nestjs-graphql/threads/create-one-threads.args';
 
 @WebSocketGateway({
   cors: {
@@ -12,6 +15,10 @@ import { Server } from 'socket.io';
   },
 })
 export class EventsGateway {
+  constructor(
+    private readonly prisma: PrismaService
+) {}
+
   @WebSocketServer()
   server: Server;
 
@@ -22,10 +29,23 @@ export class EventsGateway {
   }
 
   @SubscribeMessage('message')
-  message(@MessageBody() data: any): void {    
-    console.log(data)
-    const roomname = data['roomname'];
-    this.server.to(roomname).emit('message', data)
+  async message(@MessageBody() receiveData: CreateOneThreadsArgs ): Promise<Threads | null> {    
+    console.log(receiveData)
+    const sender = receiveData['sender'];
+    const message = receiveData['message'];
+    const date = receiveData['date'];
+    const roomname = receiveData['roomname'];
+
+    this.server.to(roomname).emit('message', receiveData)
+
+    return await this.prisma.threads.create({
+      data: {
+        sender: sender,
+        message: message,
+        date: date,
+        roomname: roomname,
+      },
+    });
   }
 
 }

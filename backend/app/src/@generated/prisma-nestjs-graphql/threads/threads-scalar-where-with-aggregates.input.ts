@@ -1,6 +1,6 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
-import { UuidWithAggregatesFilter } from '../prisma/uuid-with-aggregates-filter.input';
+import { IntWithAggregatesFilter } from '../prisma/int-with-aggregates-filter.input';
 import { StringNullableWithAggregatesFilter } from '../prisma/string-nullable-with-aggregates-filter.input';
 
 @InputType()
@@ -15,8 +15,8 @@ export class ThreadsScalarWhereWithAggregatesInput {
     @Field(() => [ThreadsScalarWhereWithAggregatesInput], {nullable:true})
     NOT?: Array<ThreadsScalarWhereWithAggregatesInput>;
 
-    @Field(() => UuidWithAggregatesFilter, {nullable:true})
-    id?: UuidWithAggregatesFilter;
+    @Field(() => IntWithAggregatesFilter, {nullable:true})
+    id?: IntWithAggregatesFilter;
 
     @Field(() => StringNullableWithAggregatesFilter, {nullable:true})
     sender?: StringNullableWithAggregatesFilter;

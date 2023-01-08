@@ -6,7 +6,7 @@ import { ID } from '@nestjs/graphql';
 export class Threads {
 
     @Field(() => ID, {nullable:false})
-    id!: string;
+    id!: number;
 
     @Field(() => String, {nullable:true})
     sender!: string | null;
