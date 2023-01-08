@@ -14,3 +14,4 @@ rehype-react
 rehype-prism-plus
 rehype-raw
 rehype-code-titles
+@vercel/og

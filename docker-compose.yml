@@ -11,6 +11,8 @@ services:
     environment:
       - STATUS=development
       - WATCHPACK_POLLING=true
+      - NEXT_PUBLIC_DOMAIN=${PUBLIC_DOMAIN}
+      - NEXT_PUBLIC_FRONTEND_URL=${PUBLIC_FRONTEND_URL}
       - NEXT_PUBLIC_BACKEND_URL=${PUBLIC_BACKEND_URL}
       - NEXT_PUBLIC_HACKMD_URL=${PUBLIC_HACKMD_URL}
     ports:
@@ -46,7 +48,7 @@ services:
     hostname: codimd-server
     environment:
       - CMD_DB_URL=${POSTGRES_URL}
-      - CMD_DOMAIN=${PUBLIC_DOMAIN}
+      # - CMD_DOMAIN=${PUBLIC_DOMAIN}
       - CMD_URL_PATH=${CODIMD_PATH}
       - CMD_PROTOCOL_USESSL=true
       - CMD_IMAGE_UPLOAD_TYPE=filesystem

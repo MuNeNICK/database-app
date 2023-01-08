@@ -1,12 +1,10 @@
 import dynamic from 'next/dynamic'
 import ErrorPage from 'next/error'
-import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { parseCookies } from 'nookies'
 import { useEffect, useState } from "react"
 import { getPostBySlug } from '../../lib/api'
 import { CMS_NAME } from '../../lib/constants'
-import markdownToHtml from '../../lib/markdownToHtml'
 import type PostType from '../../interfaces/post'
 
 const Container = dynamic(() => import("../../components/container"))
@@ -52,19 +50,14 @@ export default function Post({ post, preview }: Props) {
           <PostTitle>Loading…</PostTitle>
         ) : (
           <>
-            <article className="mb-32">
-              <Head>
-                <title>
-                  {post.displayTitle} | Next.js Blog Example with {CMS_NAME}
-                </title>
-              </Head>
+            <article className="prose prose-lg max-w-none">
               <PostHeader
-                title={post.displayTitle}
-                coverImage={post.coverImage}
+                displayTitle={post.displayTitle}
+                coverImage={`${process.env.NEXT_PUBLIC_FRONTEND_URL}/api/ogp?title=${post.displayTitle}&height=630&width=1200`}
                 date={post.date}
                 author={post.author}
               />
-              <PostBody content={post.content} />
+              <PostBody content={post.content} slug={post.slug} />
             </article>
           </>
         )}
@@ -89,17 +82,11 @@ export async function getServerSideProps({ params }: Params) {
     'author',
     'content',
     'coverImage',
-    'displayTitle',
   ])
-
-  const content = await markdownToHtml(post.content || '')
 
   return {
     props: {
-      post: {
-        ...post,
-        content
-      }
+      post,
     },
   }
 }

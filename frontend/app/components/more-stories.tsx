@@ -16,7 +16,7 @@ const MoreStories = ({ posts }: Props) => {
           <PostPreview
             key={post.slug}
             title={post.displayTitle}
-            coverImage={post.coverImage}
+            coverImage={`${process.env.NEXT_PUBLIC_FRONTEND_URL}/api/ogp?title=${post.displayTitle}`}
             date={post.date}
             author={post.author}
             slug={post.slug}

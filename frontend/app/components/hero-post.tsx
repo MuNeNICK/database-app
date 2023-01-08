@@ -5,7 +5,7 @@ import Link from 'next/link'
 import type Author from '../interfaces/author'
 
 type Props = {
-  title: string
+  displayTitle: string
   coverImage: string
   date: string
   excerpt: string
@@ -14,8 +14,8 @@ type Props = {
 }
 
 const HeroPost = ({
-  title,
   coverImage,
+  displayTitle,
   date,
   excerpt,
   author,
@@ -24,7 +24,7 @@ const HeroPost = ({
   return (
     <section>
       <div className="mb-8 md:mb-16">
-        <CoverImage title={title} src={coverImage} slug={slug} />
+        <CoverImage title={displayTitle} src={`${process.env.NEXT_PUBLIC_FRONTEND_URL}/api/ogp?title=${displayTitle}`} slug={slug} />
       </div>
       <div className="md:grid md:grid-cols-2 md:gap-x-16 lg:gap-x-8 mb-20 md:mb-28">
         <div>
@@ -34,7 +34,7 @@ const HeroPost = ({
               href="/posts/[slug]"
               className="hover:underline"
             >
-              {title}
+              {displayTitle}
             </Link>
           </h3>
           <div className="mb-4 md:mb-0 text-lg">

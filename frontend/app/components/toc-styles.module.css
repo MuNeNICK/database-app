@@ -1,0 +1,27 @@
+.toc {
+    @apply text-xs md:text-sm xl:text-base leading-5 truncate;
+}
+
+.toc a {
+    @apply text-gray-400 no-underline;
+}
+
+.toc a:hover {
+    @apply text-gray-800 font-black;
+}
+
+.toc a[class*="active"] {
+    @apply text-gray-800;
+}
+
+.toc ul {
+    @apply list-none list-outside -ml-5;
+}
+
+.toc li ul {
+    @apply hidden;
+}
+
+.toc li ul[class*="active"] {
+    @apply block;
+}

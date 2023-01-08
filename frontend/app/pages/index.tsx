@@ -25,7 +25,7 @@ export default function Index({ allPosts }: Props) {
           <Intro />
           {heroPost && (
             <HeroPost
-              title={heroPost.displayTitle}
+              displayTitle={heroPost.displayTitle}
               coverImage={heroPost.coverImage}
               date={heroPost.date}
               author={heroPost.author}
