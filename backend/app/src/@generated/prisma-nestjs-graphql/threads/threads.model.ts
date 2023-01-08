@@ -9,10 +9,13 @@ export class Threads {
     id!: string;
 
     @Field(() => String, {nullable:true})
-    name!: string | null;
+    sender!: string | null;
 
     @Field(() => String, {nullable:true})
     message!: string | null;
+
+    @Field(() => String, {nullable:true})
+    date!: string | null;
 
     @Field(() => String, {nullable:true})
     roomname!: string | null;

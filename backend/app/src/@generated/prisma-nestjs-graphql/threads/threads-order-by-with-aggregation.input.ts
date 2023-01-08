@@ -12,10 +12,13 @@ export class ThreadsOrderByWithAggregationInput {
     id?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
-    name?: keyof typeof SortOrder;
+    sender?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
     message?: keyof typeof SortOrder;
+
+    @Field(() => SortOrder, {nullable:true})
+    date?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
     roomname?: keyof typeof SortOrder;

@@ -10,10 +10,13 @@ export class ThreadsUncheckedUpdateInput {
     id?: StringFieldUpdateOperationsInput;
 
     @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
-    name?: NullableStringFieldUpdateOperationsInput;
+    sender?: NullableStringFieldUpdateOperationsInput;
 
     @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
     message?: NullableStringFieldUpdateOperationsInput;
+
+    @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
+    date?: NullableStringFieldUpdateOperationsInput;
 
     @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
     roomname?: NullableStringFieldUpdateOperationsInput;

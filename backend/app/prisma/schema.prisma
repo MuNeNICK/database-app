@@ -5,18 +5,18 @@ generator client {
 generator nestgraphql {
   provider               = "node node_modules/prisma-nestjs-graphql"
   output                 = "../src/@generated/prisma-nestjs-graphql"
+  decorate_1_name        = "ValidateNested"
   decorate_1_field       = "data"
+  decorate_1_arguments   = "[]"
+  fields_Validator_input = "true"
+  decorate_1_type        = "CreateOne*Args"
   decorate_1_from        = "class-validator"
   decorate_2_field       = "data"
-  decorate_2_from        = "class-transformer"
-  fields_Validator_from  = "class-validator"
-  decorate_2_name        = "Type"
-  decorate_1_name        = "ValidateNested"
-  decorate_2_type        = "CreateOne*Args"
-  fields_Validator_input = "true"
   decorate_2_arguments   = "['() => {propertyType.0}']"
-  decorate_1_arguments   = "[]"
-  decorate_1_type        = "CreateOne*Args"
+  decorate_2_name        = "Type"
+  decorate_2_type        = "CreateOne*Args"
+  fields_Validator_from  = "class-validator"
+  decorate_2_from        = "class-transformer"
 }
 
 datasource db {
@@ -96,8 +96,9 @@ model Users {
 
 model Threads {
   id       String  @id @db.Uuid
-  name     String?
+  sender   String?
   message  String?
+  date     String?
   roomname String?
 }
 

@@ -2,8 +2,9 @@ import { registerEnumType } from '@nestjs/graphql';
 
 export enum ThreadsScalarFieldEnum {
     id = "id",
-    name = "name",
+    sender = "sender",
     message = "message",
+    date = "date",
     roomname = "roomname"
 }
 

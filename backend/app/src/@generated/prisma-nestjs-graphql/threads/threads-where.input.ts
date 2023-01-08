@@ -19,10 +19,13 @@ export class ThreadsWhereInput {
     id?: UuidFilter;
 
     @Field(() => StringNullableFilter, {nullable:true})
-    name?: StringNullableFilter;
+    sender?: StringNullableFilter;
 
     @Field(() => StringNullableFilter, {nullable:true})
     message?: StringNullableFilter;
+
+    @Field(() => StringNullableFilter, {nullable:true})
+    date?: StringNullableFilter;
 
     @Field(() => StringNullableFilter, {nullable:true})
     roomname?: StringNullableFilter;

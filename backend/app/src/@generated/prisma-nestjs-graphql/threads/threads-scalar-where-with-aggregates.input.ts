@@ -19,10 +19,13 @@ export class ThreadsScalarWhereWithAggregatesInput {
     id?: UuidWithAggregatesFilter;
 
     @Field(() => StringNullableWithAggregatesFilter, {nullable:true})
-    name?: StringNullableWithAggregatesFilter;
+    sender?: StringNullableWithAggregatesFilter;
 
     @Field(() => StringNullableWithAggregatesFilter, {nullable:true})
     message?: StringNullableWithAggregatesFilter;
+
+    @Field(() => StringNullableWithAggregatesFilter, {nullable:true})
+    date?: StringNullableWithAggregatesFilter;
 
     @Field(() => StringNullableWithAggregatesFilter, {nullable:true})
     roomname?: StringNullableWithAggregatesFilter;

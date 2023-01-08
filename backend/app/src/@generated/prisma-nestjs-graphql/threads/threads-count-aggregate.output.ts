@@ -9,10 +9,13 @@ export class ThreadsCountAggregate {
     id!: number;
 
     @Field(() => Int, {nullable:false})
-    name!: number;
+    sender!: number;
 
     @Field(() => Int, {nullable:false})
     message!: number;
+
+    @Field(() => Int, {nullable:false})
+    date!: number;
 
     @Field(() => Int, {nullable:false})
     roomname!: number;

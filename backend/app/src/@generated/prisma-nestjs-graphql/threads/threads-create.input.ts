@@ -8,10 +8,13 @@ export class ThreadsCreateInput {
     id!: string;
 
     @Field(() => String, {nullable:true})
-    name?: string;
+    sender?: string;
 
     @Field(() => String, {nullable:true})
     message?: string;
+
+    @Field(() => String, {nullable:true})
+    date?: string;
 
     @Field(() => String, {nullable:true})
     roomname?: string;

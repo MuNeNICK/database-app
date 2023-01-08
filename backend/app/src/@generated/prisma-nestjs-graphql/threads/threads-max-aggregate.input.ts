@@ -8,10 +8,13 @@ export class ThreadsMaxAggregateInput {
     id?: true;
 
     @Field(() => Boolean, {nullable:true})
-    name?: true;
+    sender?: true;
 
     @Field(() => Boolean, {nullable:true})
     message?: true;
+
+    @Field(() => Boolean, {nullable:true})
+    date?: true;
 
     @Field(() => Boolean, {nullable:true})
     roomname?: true;
