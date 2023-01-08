@@ -4,6 +4,7 @@ import {
   WebSocketGateway,
   WebSocketServer
 } from '@nestjs/websockets';
+import { resolvePtr } from 'dns';
 import { Server } from 'socket.io';
 
 @WebSocketGateway({
@@ -15,10 +16,17 @@ export class EventsGateway {
   @WebSocketServer()
   server: Server;
 
+  handleConnection(client) {
+    client.on('join', (room) => {
+      client.join(room)
+    });
+  }
+
   @SubscribeMessage('message')
   message(@MessageBody() data: any): void {    
     console.log(data)
-    this.server.emit('message', data)
+    const roomname = data['roomname'];
+    this.server.to(roomname).emit('message', data)
   }
 
 }

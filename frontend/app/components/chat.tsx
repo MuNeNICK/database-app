@@ -1,5 +1,6 @@
 import io from 'socket.io-client';
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 
 const url = process.env.NEXT_PUBLIC_BACKEND_URL;
 const socket = io(url);
@@ -7,11 +8,15 @@ const socket = io(url);
 export default function Chat() {
     const [senderName, setSenderName] = useState('');
     const [message, setMessage] = useState('');
-    const [receivedMessages, setReceivedMessages] = useState<{ sender: string; message: string; date: Date }[]>([]);
+    const [receivedMessages, setReceivedMessages] = useState<{ sender: string; message: string; date: Date, roomname: string }[]>([]);
+
+    const router = useRouter();
+    const pathname = router.asPath.split('/').pop();
 
     useEffect(() => {
         socket.on('connect', () => {
             console.log('connected to the server');
+            socket.emit('join', pathname)
         });
 
         socket.on('message', (data) => {
@@ -35,7 +40,7 @@ export default function Chat() {
             minute: "2-digit",
             second: "2-digit"
         });
-        socket.emit('message', { sender: senderName, message: message, date: formattedDateTime });
+        socket.emit('message', { sender: senderName, message: message, date: formattedDateTime, roomname: pathname });
         setMessage('');
     }
 
