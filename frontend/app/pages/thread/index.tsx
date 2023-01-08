@@ -1,5 +1,5 @@
 import Container from '../../components/container'
-import MoreStories from '../../components/more-stories'
+import MoreStories from '../../components/more-stories-thread'
 import HeroPost from '../../components/hero-post'
 import Intro from '../../components/intro-thread'
 import Layout from '../../components/layout'

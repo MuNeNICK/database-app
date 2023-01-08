@@ -8,7 +8,7 @@ const Layout = dynamic(() => import("../../components/layout"))
 const url = process.env.NEXT_PUBLIC_BACKEND_URL;
 const socket = io(url);
 
-export default function MyComponent() {
+export default function Chat() {
   const [senderName, setSenderName] = useState('');
   const [message, setMessage] = useState('');
   const [receivedMessages, setReceivedMessages] = useState<{ sender: string; message: string; date: Date }[]>([]);

@@ -13,6 +13,7 @@ const PostHeader = dynamic(() => import("../../components/post-header"))
 const Layout = dynamic(() => import("../../components/layout"))
 const PostTitle = dynamic(() => import("../../components/post-title"))
 const Edit = dynamic(() => import("../../components/post-edit"))
+const Chat = dynamic(() => import("../../components/chat"))
 
 type Props = {
   post: PostType
@@ -58,6 +59,7 @@ export default function Post({ post, preview }: Props) {
                 author={post.author}
               />
               <PostBody content={post.content} slug={post.slug} />
+              <Chat />
             </article>
           </>
         )}
