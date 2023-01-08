@@ -54,13 +54,13 @@ const PostBody = ({ content, slug }: Props) => {
 
   return (
     <div className="xl:grid grid-cols-4 gap-4">
-      <div className="max-w-4xl mx-auto mb-32 col-span-3">
+      <div className="max-w-4xl mx-auto mb-32 col-span-3 bg-white w-screen h-screen p-10 rounded-xl shadow">
         <div
           className={markdownStyles['markdown']}
         >{component}</div>
       </div>
-      <div className="hidden xl:block mx-auto mb-32 col-span-1">
-        <div className="sticky top-40">
+      <div className="hidden xl:block mx-auto mb-32 col-span-1 bg-white w-full h-max rounded-xl p-2 sticky top-40  shadow">
+        <div className="flex flex-col items-center">
           <h2 className="text-2xl font-bold mb-4">目次</h2>
           <div className={tocStyles['toc']}>{toc}</div>
         </div>

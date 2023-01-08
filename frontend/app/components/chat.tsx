@@ -40,8 +40,9 @@ export default function Chat() {
     }
 
     return (
-        <div className='flex justify-center'>
-            <div className="container mx-auto p-4 bg-white rounded-lg overflow-hidden absolute bottom-10 max-w-6xl">
+        <div className='flex justify-center xl:grid grid-cols-4 gap-4'>
+            <div className="container mx-auto p-4 bg-white rounded-lg overflow-hidden relative bottom-10 max-w-4xl col-span-3 shadow">
+                <h2 className='p-4 -mt-2'>質問</h2>
                 <div className="messages h-80 overflow-y-scroll">
                     {receivedMessages.map(({ sender, message, date }, index) => (
                         <div key={index} className="p-4 border-b">
