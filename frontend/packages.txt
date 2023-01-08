@@ -4,3 +4,13 @@ nookies
 @apollo/client
 graphql
 socket.io-client
+unified
+remark-parse
+remark-rehype
+remark-toc
+rehype-slug
+remark-gfm
+rehype-react
+rehype-prism-plus
+rehype-raw
+rehype-code-titles
