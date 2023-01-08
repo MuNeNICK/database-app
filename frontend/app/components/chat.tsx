@@ -42,8 +42,8 @@ export default function Chat() {
     return (
         <div className='flex justify-center xl:grid grid-cols-4 gap-4'>
             <div className="container mx-auto p-4 bg-white rounded-lg overflow-hidden relative bottom-10 max-w-4xl col-span-3 shadow">
-                <h2 className='p-4 -mt-2'>質問</h2>
-                <div className="messages h-80 overflow-y-scroll">
+                <h2 className='p-4 -mt-2'>スレッド</h2>
+                <div className="messages">
                     {receivedMessages.map(({ sender, message, date }, index) => (
                         <div key={index} className="p-4 border-b">
                             <div className="font-bold text-xl">{sender}</div>
@@ -58,16 +58,17 @@ export default function Chat() {
                         type="text"
                         value={senderName}
                         onChange={(event) => setSenderName(event.target.value)}
-                        placeholder="Name"
+                        placeholder="名前"
                     />
                     <input
                         className="form-input rounded-l-lg rounded-r-none py-2 px-4 block w-full leading-5 bg-gray-100 placeholder-gray-500 focus:outline-none focus:bg-white focus:placeholder-gray-400"
                         type="text"
                         value={message}
                         onChange={(event) => setMessage(event.target.value)}
+                        placeholder="内容"
                     />
                     <button className="form-button rounded-r-lg py-2 px-4 leading-5 font-medium text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-800" type="submit">
-                        Send
+                        送信
                     </button>
                 </form>
             </div>
