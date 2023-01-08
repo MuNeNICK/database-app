@@ -6,6 +6,7 @@ import { useEffect, useState } from "react"
 import { getPostBySlug } from '../../lib/api'
 import { CMS_NAME } from '../../lib/constants'
 import type PostType from '../../interfaces/post'
+import Chat from '../../components/chat'
 
 const Container = dynamic(() => import("../../components/container"))
 const PostBody = dynamic(() => import("../../components/post-body"))
@@ -13,7 +14,7 @@ const PostHeader = dynamic(() => import("../../components/post-header"))
 const Layout = dynamic(() => import("../../components/layout"))
 const PostTitle = dynamic(() => import("../../components/post-title"))
 const Edit = dynamic(() => import("../../components/post-edit"))
-const Chat = dynamic(() => import("../../components/chat"))
+
 
 type Props = {
   post: PostType
