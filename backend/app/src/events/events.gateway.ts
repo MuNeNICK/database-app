@@ -4,7 +4,6 @@ import {
   WebSocketGateway,
   WebSocketServer
 } from '@nestjs/websockets';
-import { resolvePtr } from 'dns';
 import { Server } from 'socket.io';
 
 @WebSocketGateway({
