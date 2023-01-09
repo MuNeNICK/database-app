@@ -1,10 +1,8 @@
-import dynamic from 'next/dynamic'
 import ErrorPage from 'next/error'
 import { useRouter } from 'next/router'
 import { parseCookies } from 'nookies'
 import { useEffect, useState } from "react"
 import { getPostBySlug } from '../../lib/api'
-import { CMS_NAME } from '../../lib/constants'
 import type PostType from '../../interfaces/post'
 import Chat from '../../components/chat'
 import Container from '../../components/container'
