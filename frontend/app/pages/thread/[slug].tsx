@@ -7,13 +7,12 @@ import { getPostBySlug } from '../../lib/api'
 import { CMS_NAME } from '../../lib/constants'
 import type PostType from '../../interfaces/post'
 import Chat from '../../components/chat'
-
-const Container = dynamic(() => import("../../components/container"))
-const PostBody = dynamic(() => import("../../components/post-body"))
-const PostHeader = dynamic(() => import("../../components/post-header"))
-const Layout = dynamic(() => import("../../components/layout"))
-const PostTitle = dynamic(() => import("../../components/post-title"))
-const Edit = dynamic(() => import("../../components/post-edit"))
+import Container from '../../components/container'
+import PostBody from '../../components/post-body'
+import PostHeader from '../../components/post-header'
+import PostTitle from '../../components/post-title'
+import Layout from '../../components/layout'
+import Edit from '../../components/post-edit'
 
 
 type Props = {

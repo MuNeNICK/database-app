@@ -54,7 +54,7 @@ const PostBody = ({ content, slug }: Props) => {
 
   return (
     <div className="xl:grid grid-cols-4 gap-4">
-      <div className="max-w-4xl mx-auto mb-32 col-span-3 bg-white w-screen h-screen p-10 rounded-xl shadow">
+      <div className="max-w-4xl mx-auto mb-32 col-span-3 bg-white xl:w-screen h-screen p-10 rounded-xl shadow">
         <div
           className={markdownStyles['markdown']}
         >{component}</div>
