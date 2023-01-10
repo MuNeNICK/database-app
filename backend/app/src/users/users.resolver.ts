@@ -27,4 +27,11 @@ export class UsersResolver {
     ) {
         return this.userService.findMany(args)
     }
+
+    @Mutation(() => Users)
+    createUser(
+        @Args() args: CreateOneUsersArgs
+    ) {
+        return this.userService.createUser(args)
+    }
 }

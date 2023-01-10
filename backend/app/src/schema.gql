@@ -408,10 +408,25 @@ enum NotesScalarFieldEnum {
 
 type Mutation {
   login(loginUserInput: LoginUserInput!): LoginResponse!
+  createUser(data: UsersCreateInput!): Users!
   deleteNote(where: NotesWhereUniqueInput!): Notes!
 }
 
 input LoginUserInput {
   email: String!
   password: String!
+}
+
+input UsersCreateInput {
+  id: String!
+  profileid: String
+  profile: String
+  history: String
+  createdAt: DateTime
+  updatedAt: DateTime
+  accessToken: String
+  refreshToken: String
+  email: String
+  password: String
+  deleteToken: String
 }
