@@ -1,6 +1,9 @@
 import io from 'socket.io-client';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import { useQuery } from '@apollo/client';
+import Query_Threads from '../graphql/threads.query';
+import { gql } from '@apollo/client';
 
 const url = process.env.NEXT_PUBLIC_BACKEND_URL;
 const socket = io(url);
@@ -12,6 +15,9 @@ export default function Chat() {
 
     const router = useRouter();
     const pathname = router.asPath.split('/').pop();
+
+    const THREADS_QUERY = Query_Threads(pathname)
+    const { loading, error, data } = useQuery(gql(THREADS_QUERY)) || { loading: false, error: null, data: null };
 
     useEffect(() => {
         socket.on('connect', () => {
@@ -28,6 +34,9 @@ export default function Chat() {
             socket.off('message');
         };
     }, []);
+
+    if (loading) return 'Loading...';
+    if (error) return `Error! ${error.message}`;
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -49,6 +58,13 @@ export default function Chat() {
             <div className="container mx-auto p-4 bg-white rounded-lg overflow-hidden relative bottom-10 max-w-4xl col-span-3 shadow">
                 <h2 className='p-4 -mt-2'>スレッド</h2>
                 <div className="messages">
+                {data.threads.map(({ sender, message, date }, index) => (
+                    <div key={index} className="p-4 border-b">
+                        <div className="font-bold text-xl">{sender}</div>
+                        <div className="text-sm">{date.toLocaleString()}</div><br></br>
+                        <div className="test-base">{message}</div>
+                    </div>
+                ))}
                     {receivedMessages.map(({ sender, message, date }, index) => (
                         <div key={index} className="p-4 border-b">
                             <div className="font-bold text-xl">{sender}</div>
@@ -59,7 +75,7 @@ export default function Chat() {
                 </div>
                 <form onSubmit={handleSubmit} className="input-form flex py-4 border-t border-gray-400">
                     <input
-                        className="form-input rounded-l-lg rounded-r-none py-2 px-4 block w-1/4 leading-5 bg-gray-100 placeholder-gray-500 focus:outline-none focus:bg-white focus:placeholder-gray-400"
+                        className="form-input rounded-lg mr-2 py-2 px-4 block w-1/4 leading-5 bg-gray-100 placeholder-gray-500 focus:outline-none focus:bg-white focus:placeholder-gray-400"
                         type="text"
                         value={senderName}
                         onChange={(event) => setSenderName(event.target.value)}
