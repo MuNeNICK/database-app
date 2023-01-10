@@ -38,6 +38,8 @@ export default function Chat() {
     if (loading) return 'Loading...';
     if (error) return `Error! ${error.message}`;
 
+    const reversedThreads = data.threads.slice().reverse();
+
     const handleSubmit = (event) => {
         event.preventDefault();
         const date = new Date();
@@ -58,14 +60,14 @@ export default function Chat() {
             <div className="container mx-auto p-4 bg-white rounded-lg overflow-hidden relative bottom-10 max-w-4xl col-span-3 shadow">
                 <h2 className='p-4 -mt-2'>スレッド</h2>
                 <div className="messages">
-                {data.threads.map(({ sender, message, date }, index) => (
-                    <div key={index} className="p-4 border-b">
-                        <div className="font-bold text-xl">{sender}</div>
-                        <div className="text-sm">{date.toLocaleString()}</div><br></br>
-                        <div className="test-base">{message}</div>
-                    </div>
-                ))}
                     {receivedMessages.map(({ sender, message, date }, index) => (
+                        <div key={index} className="p-4 border-b">
+                            <div className="font-bold text-xl">{sender}</div>
+                            <div className="text-sm">{date.toLocaleString()}</div><br></br>
+                            <div className="test-base">{message}</div>
+                        </div>
+                    ))}
+                    {reversedThreads.map(({ sender, message, date }, index) => (
                         <div key={index} className="p-4 border-b">
                             <div className="font-bold text-xl">{sender}</div>
                             <div className="text-sm">{date.toLocaleString()}</div><br></br>
