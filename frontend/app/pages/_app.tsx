@@ -1,5 +1,7 @@
 import { AppProps } from 'next/app'
 import '../styles/index.css'
+import '../styles/prism.css'
+import "../styles/prism-theme-night-owl.css"
 import { initializeApollo } from '../lib/graphqlClient'
 import { ApolloProvider } from '@apollo/client';
 
