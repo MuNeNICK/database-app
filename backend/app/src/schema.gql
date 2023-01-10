@@ -73,7 +73,7 @@ input UsersWhereInput {
   AND: [UsersWhereInput!]
   OR: [UsersWhereInput!]
   NOT: [UsersWhereInput!]
-  id: UuidFilter
+  id: IntFilter
   profileid: StringNullableFilter
   profile: StringNullableFilter
   history: StringNullableFilter
@@ -86,32 +86,26 @@ input UsersWhereInput {
   deleteToken: UuidNullableFilter
 }
 
-input UuidFilter {
-  equals: String
-  in: [String!]
-  notIn: [String!]
-  lt: String
-  lte: String
-  gt: String
-  gte: String
-  mode: QueryMode
-  not: NestedUuidFilter
+input IntFilter {
+  equals: Int
+  in: [Int!]
+  notIn: [Int!]
+  lt: Int
+  lte: Int
+  gt: Int
+  gte: Int
+  not: NestedIntFilter
 }
 
-enum QueryMode {
-  default
-  insensitive
-}
-
-input NestedUuidFilter {
-  equals: String
-  in: [String!]
-  notIn: [String!]
-  lt: String
-  lte: String
-  gt: String
-  gte: String
-  not: NestedUuidFilter
+input NestedIntFilter {
+  equals: Int
+  in: [Int!]
+  notIn: [Int!]
+  lt: Int
+  lte: Int
+  gt: Int
+  gte: Int
+  not: NestedIntFilter
 }
 
 input StringNullableFilter {
@@ -127,6 +121,11 @@ input StringNullableFilter {
   endsWith: String
   mode: QueryMode
   not: NestedStringNullableFilter
+}
+
+enum QueryMode {
+  default
+  insensitive
 }
 
 input NestedStringNullableFilter {
@@ -208,7 +207,7 @@ enum SortOrder {
 }
 
 input UsersWhereUniqueInput {
-  id: String
+  id: Int
   profileid: String
   email: String
 }
@@ -236,28 +235,6 @@ input ThreadsWhereInput {
   message: StringNullableFilter
   date: StringNullableFilter
   roomname: StringNullableFilter
-}
-
-input IntFilter {
-  equals: Int
-  in: [Int!]
-  notIn: [Int!]
-  lt: Int
-  lte: Int
-  gt: Int
-  gte: Int
-  not: NestedIntFilter
-}
-
-input NestedIntFilter {
-  equals: Int
-  in: [Int!]
-  notIn: [Int!]
-  lt: Int
-  lte: Int
-  gt: Int
-  gte: Int
-  not: NestedIntFilter
 }
 
 input ThreadsOrderByWithRelationInput {
@@ -299,6 +276,29 @@ input NotesWhereInput {
   savedAt: DateTimeNullableFilter
   authorship: StringNullableFilter
   deletedAt: DateTimeNullableFilter
+}
+
+input UuidFilter {
+  equals: String
+  in: [String!]
+  notIn: [String!]
+  lt: String
+  lte: String
+  gt: String
+  gte: String
+  mode: QueryMode
+  not: NestedUuidFilter
+}
+
+input NestedUuidFilter {
+  equals: String
+  in: [String!]
+  notIn: [String!]
+  lt: String
+  lte: String
+  gt: String
+  gte: String
+  not: NestedUuidFilter
 }
 
 input StringFilter {
@@ -418,7 +418,6 @@ input LoginUserInput {
 }
 
 input UsersCreateInput {
-  id: String!
   profileid: String
   profile: String
   history: String

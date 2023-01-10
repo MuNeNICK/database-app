@@ -1,11 +1,12 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
+import { Int } from '@nestjs/graphql';
 
 @InputType()
 export class UsersUncheckedCreateInput {
 
-    @Field(() => String, {nullable:false})
-    id!: string;
+    @Field(() => Int, {nullable:true})
+    id?: number;
 
     @Field(() => String, {nullable:true})
     profileid?: string;

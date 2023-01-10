@@ -1,11 +1,12 @@
 import { Field } from '@nestjs/graphql';
 import { ObjectType } from '@nestjs/graphql';
+import { Int } from '@nestjs/graphql';
 
 @ObjectType()
 export class UsersMinAggregate {
 
-    @Field(() => String, {nullable:true})
-    id?: string;
+    @Field(() => Int, {nullable:true})
+    id?: number;
 
     @Field(() => String, {nullable:true})
     profileid?: string;
