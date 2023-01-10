@@ -35,8 +35,8 @@ export default function Chat() {
     
     const THREADS_QUERY = Query_Threads(pathname)
     const { loading, error, data } = useQuery(gql(THREADS_QUERY)) || { loading: false, error: null, data: null };
-    if (loading) return 'Loading...';
-    if (error) return `Error! ${error.message}`;
+    if (loading) return <p>'Loading...'</p>;
+    if (error) return <p>`Error! ${error.message}`</p>;
 
     const reversedThreads = data.threads.slice().reverse();
 
