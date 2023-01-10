@@ -82,6 +82,7 @@ export default function Chat() {
                         value={senderName}
                         onChange={(event) => setSenderName(event.target.value)}
                         placeholder="名前"
+                        required
                     />
                     <input
                         className="form-input rounded-l-lg rounded-r-none py-2 px-4 block w-full leading-5 bg-gray-100 placeholder-gray-500 focus:outline-none focus:bg-white focus:placeholder-gray-400"
@@ -89,6 +90,7 @@ export default function Chat() {
                         value={message}
                         onChange={(event) => setMessage(event.target.value)}
                         placeholder="内容"
+                        required
                     />
                     <button className="form-button rounded-r-lg py-2 px-4 leading-5 font-medium text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-800" type="submit">
                         送信
