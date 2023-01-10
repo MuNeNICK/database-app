@@ -48,7 +48,7 @@ services:
     hostname: codimd-server
     environment:
       - CMD_DB_URL=${POSTGRES_URL}
-      # - CMD_DOMAIN=${PUBLIC_DOMAIN}
+      - CMD_DOMAIN=${PUBLIC_CODIMD_DOMAIN}
       - CMD_URL_PATH=${CODIMD_PATH}
       - CMD_PROTOCOL_USESSL=true
       - CMD_IMAGE_UPLOAD_TYPE=filesystem
