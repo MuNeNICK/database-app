@@ -16,9 +16,6 @@ export default function Chat() {
     const router = useRouter();
     const pathname = router.asPath.split('/').pop();
 
-    const THREADS_QUERY = Query_Threads(pathname)
-    const { loading, error, data } = useQuery(gql(THREADS_QUERY)) || { loading: false, error: null, data: null };
-
     useEffect(() => {
         socket.on('connect', () => {
             console.log('connected to the server');
@@ -35,6 +32,9 @@ export default function Chat() {
         };
     }, []);
 
+    
+    const THREADS_QUERY = Query_Threads(pathname)
+    const { loading, error, data } = useQuery(gql(THREADS_QUERY)) || { loading: false, error: null, data: null };
     if (loading) return 'Loading...';
     if (error) return `Error! ${error.message}`;
 
