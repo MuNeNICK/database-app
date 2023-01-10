@@ -1,6 +1,6 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
-import { IntFilter } from '../prisma/int-filter.input';
+import { UuidFilter } from '../prisma/uuid-filter.input';
 import { StringNullableFilter } from '../prisma/string-nullable-filter.input';
 import { DateTimeNullableFilter } from '../prisma/date-time-nullable-filter.input';
 import { UuidNullableFilter } from '../prisma/uuid-nullable-filter.input';
@@ -17,8 +17,8 @@ export class UsersWhereInput {
     @Field(() => [UsersWhereInput], {nullable:true})
     NOT?: Array<UsersWhereInput>;
 
-    @Field(() => IntFilter, {nullable:true})
-    id?: IntFilter;
+    @Field(() => UuidFilter, {nullable:true})
+    id?: UuidFilter;
 
     @Field(() => StringNullableFilter, {nullable:true})
     profileid?: StringNullableFilter;

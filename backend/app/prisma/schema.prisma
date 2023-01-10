@@ -6,17 +6,17 @@ generator nestgraphql {
   provider               = "node node_modules/prisma-nestjs-graphql"
   output                 = "../src/@generated/prisma-nestjs-graphql"
   decorate_1_arguments   = "[]"
-  decorate_2_field       = "data"
-  decorate_1_field       = "data"
-  decorate_1_name        = "ValidateNested"
   decorate_1_type        = "CreateOne*Args"
-  fields_Validator_input = "true"
-  decorate_1_from        = "class-validator"
-  decorate_2_name        = "Type"
+  decorate_1_field       = "data"
   fields_Validator_from  = "class-validator"
-  decorate_2_from        = "class-transformer"
+  decorate_1_name        = "ValidateNested"
   decorate_2_arguments   = "['() => {propertyType.0}']"
+  decorate_2_from        = "class-transformer"
   decorate_2_type        = "CreateOne*Args"
+  decorate_1_from        = "class-validator"
+  fields_Validator_input = "true"
+  decorate_2_field       = "data"
+  decorate_2_name        = "Type"
 }
 
 datasource db {
@@ -89,7 +89,7 @@ model Threads {
 }
 
 model Users {
-  id           Int       @id @default(autoincrement())
+  id           String    @id @db.Uuid
   profileid    String?   @unique @db.VarChar(255)
   profile      String?
   history      String?
