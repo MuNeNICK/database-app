@@ -83,6 +83,11 @@ const Header = () => {
                   ログイン
                 </Link>
               </li>
+              <li>
+                <Link href="/signup">
+                  新規登録
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
